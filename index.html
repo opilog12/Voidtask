@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" type="image/png" href="ico.png">
+
+<title>VoidTask</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050505;
+    color:#d9f2ff;
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at top left, rgba(0,153,255,0.08), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(0,153,255,0.05), transparent 30%);
+    z-index:-3;
+}
+
+.grid{
+    position:fixed;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(0,153,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,153,255,0.04) 1px, transparent 1px);
+    background-size:35px 35px;
+    z-index:-2;
+}
+
+.particles{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.particle{
+    position:absolute;
+    width:4px;
+    height:4px;
+    border-radius:50%;
+    background:#0099ff;
+    opacity:0.5;
+    animation:float linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+    }
+
+    to{
+        transform:translateY(-10vh);
+    }
+}
+
+.lang-switcher{
+    position:absolute;
+    top:20px;
+    right:20px;
+    display:flex;
+    gap:10px;
+}
+
+.lang-btn{
+    background:#111;
+    border:1px solid rgba(0,153,255,0.2);
+    color:#b3e6ff;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.2s;
+}
+
+.lang-btn:hover{
+    background:#1a1a1a;
+}
+
+.lang-btn.active{
+    background:#0099ff;
+    color:#000;
+}
+
+header{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+    position:relative;
+}
+
+.hero{
+    max-width:900px;
+}
+
+h1{
+    font-size:5rem;
+    color:#66d9ff;
+    letter-spacing:8px;
+    text-shadow:0 0 18px #0099ff;
+    margin-bottom:20px;
+}
+
+.subtitle{
+    color:#c2f0ff;
+    line-height:1.8;
+    font-size:1.15rem;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:18px;
+    margin-top:30px;
+}
+
+.btn{
+    text-decoration:none;
+    background:#0099ff;
+    color:#000;
+    padding:14px 28px;
+    border-radius:12px;
+    font-weight:bold;
+    transition:0.2s ease;
+    box-shadow:0 0 15px rgba(0,153,255,0.25);
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    background:#33b3ff;
+}
+
+footer{
+    text-align:center;
+    padding:35px 15px;
+    color:#99ddff;
+    opacity:0.75;
+}
+
+@media(max-width:700px){
+
+    h1{
+        font-size:3rem;
+        letter-spacing:4px;
+    }
+
+    .subtitle{
+        font-size:1rem;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+        max-width:320px;
+    }
+
+    .lang-switcher{
+        top:15px;
+        right:15px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="grid"></div>
+
+<div class="particles">
+    <div class="particle" style="left:10%; animation-duration:12s;"></div>
+    <div class="particle" style="left:20%; animation-duration:18s;"></div>
+    <div class="particle" style="left:35%; animation-duration:14s;"></div>
+    <div class="particle" style="left:50%; animation-duration:20s;"></div>
+    <div class="particle" style="left:70%; animation-duration:16s;"></div>
+    <div class="particle" style="left:85%; animation-duration:13s;"></div>
+</div>
+
+<header>
+
+<div class="lang-switcher">
+    <button class="lang-btn active" id="btn-pl" onclick="setLanguage('pl')">
+        PL
+    </button>
+
+    <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">
+        EN
+    </button>
+</div>
+
+<div class="hero">
+
+    <h1>VOIDTASK</h1>
+
+    <div class="subtitle" id="subtitle">
+        Osobisty menadżer i planer zadań.<br>
+        Potężny, szybki i stworzony dla maksymalnej produktywności w mrocznym klimacie.
+    </div>
+
+    <div class="buttons">
+
+        <a class="btn"
+           id="download-btn"
+           href="https://drive.google.com/file/d/1d9fTTnh_GUsiSx_YDfjDjmPZT-Wer1Fc/view?usp=drivesdk">
+            Pobierz planer
+        </a>
+
+        <a class="btn"
+           id="terms-btn"
+           href="terms.html">
+            Regulamin
+        </a>
+
+        <a class="btn"
+           id="privacy-btn"
+           href="privacy.html">
+            Prywatność
+        </a>
+
+        <a class="btn"
+           id="other-btn"
+           href="inne-projekty.html">
+            Inne projekty
+        </a>
+
+    </div>
+
+</div>
+
+</header>
+
+<footer>
+© 2026 VoidTask - by opilog12
+</footer>
+
+<script>
+
+const translations = {
+
+    pl:{
+        subtitle:"Osobisty menadżer i planer zadań.<br>Potężny, szybki i stworzony dla maksymalnej produktywności w mrocznym klimacie.",
+        download:"Pobierz planer",
+        other:"Inne projekty",
+        terms:"Regulamin",
+        privacy:"Prywatność"
+    },
+
+    en:{
+        subtitle:"Personal task manager and planner.<br>Powerful, fast and built for maximum productivity in a dark atmosphere.",
+        download:"Download Planner",
+        other:"Other Projects",
+        terms:"Terms",
+        privacy:"Privacy"
+    }
+
+};
+
+function setLanguage(lang){
+
+    localStorage.setItem("selectedLang", lang);
+
+    document.documentElement.lang = lang;
+
+    document.getElementById("btn-pl").classList.toggle("active", lang === "pl");
+    document.getElementById("btn-en").classList.toggle("active", lang === "en");
+
+    document.getElementById("subtitle").innerHTML =
+        translations[lang].subtitle;
+
+    document.getElementById("download-btn").innerText =
+        translations[lang].download;
+
+    document.getElementById("other-btn").innerText =
+        translations[lang].other;
+
+    document.getElementById("terms-btn").innerText =
+        translations[lang].terms;
+
+    document.getElementById("privacy-btn").innerText =
+        translations[lang].privacy;
+}
+
+window.onload = () => {
+
+    const savedLang =
+        localStorage.getItem("selectedLang") || "pl";
+
+    setLanguage(savedLang);
+};
+
+</script>
+
+</body>
+</html>

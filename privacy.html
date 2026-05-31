@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="ico.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy - VoidTask</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#050505;
+    color:#d9f2ff;
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at top left, rgba(0,153,255,0.08), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(0,153,255,0.05), transparent 30%);
+    z-index:-3;
+}
+
+.grid{
+    position:fixed;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(0,153,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,153,255,0.04) 1px, transparent 1px);
+    background-size:35px 35px;
+    z-index:-2;
+}
+
+.lang-switcher{
+    position:absolute;
+    top:20px;
+    right:20px;
+    display:flex;
+    gap:10px;
+}
+
+.lang-btn{
+    background:#111;
+    border:1px solid rgba(0,153,255,0.2);
+    color:#b3e6ff;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.2s;
+}
+
+.lang-btn:hover{
+    transform:translateY(-2px);
+}
+
+.lang-btn.active{
+    background:#0099ff;
+    color:#000;
+}
+
+.container{
+    width:90%;
+    max-width:1000px;
+    margin:auto;
+    padding:120px 20px;
+}
+
+.card{
+    background:rgba(10,10,10,0.75);
+    border:1px solid rgba(0,153,255,0.15);
+    border-radius:18px;
+    padding:35px;
+    backdrop-filter:blur(8px);
+}
+
+h1{
+    color:#66d9ff;
+    margin-bottom:25px;
+    font-size:3rem;
+    text-shadow:0 0 15px #0099ff;
+}
+
+h2{
+    margin-top:30px;
+    margin-bottom:15px;
+    color:#73d6ff;
+    font-size:1.4rem;
+}
+
+p, li{
+    line-height:1.9;
+    color:#d9f2ff;
+}
+
+ul{
+    padding-left:25px;
+    margin-bottom:20px;
+}
+
+.section{
+    margin-bottom:25px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="grid"></div>
+
+<div class="lang-switcher">
+    <button class="lang-btn active" id="btn-pl" onclick="setLanguage('pl')">PL</button>
+    <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
+</div>
+
+<div class="container">
+<div class="card">
+
+<h1 id="title">Polityka prywatności</h1>
+
+<div class="section">
+<h2 id="s1">1. Gromadzenie danych</h2>
+
+<p id="text1">
+VoidTask szanuje Twoją prywatność. Aplikacja działa lokalnie i nie zbiera ani nie przesyła Twoich danych osobowych na zewnętrzne serwery.
+</p>
+
+<ul id="list1">
+<li>Treść Twoich zadań i notatek (zapisywane wyłącznie lokalnie)</li>
+<li>Ustawienia aplikacji oraz konfiguracje planera</li>
+<li>Brak zewnętrznych systemów śledzenia aktywności</li>
+</ul>
+</div>
+
+<div class="section">
+<h2 id="s2">2. Wykorzystanie danych</h2>
+
+<p id="text2">
+Wszystkie dane generowane przez użytkownika wewnątrz planera służą wyłącznie do poprawnego realizowania funkcji przypomnień i zarządzania listami zadań bezpośrednio na urządzeniu docelowym.
+</p>
+</div>
+
+<div class="section">
+<h2 id="s3">3. Udostępnianie danych</h2>
+
+<p id="text3">
+VoidTask nie gromadzi danych w chmurze, w związku z czym nie sprzedaje ani nie udostępnia żadnych informacji osobom trzecim.
+</p>
+</div>
+
+<div class="section">
+<h2 id="s4">4. Zmiany polityki prywatności</h2>
+
+<p id="text6">
+Polityka prywatności może ulec zmianie, jednak nadrzędna zasada całkowitej lokalności i prywatności Twoich danych pozostaje niezmienna.
+</p>
+</div>
+
+</div>
+</div>
+
+<script>
+const translations = {
+    pl:{
+        title:"Polityka prywatności",
+
+        s1:"1. Gromadzenie danych",
+        text1:"VoidTask szanuje Twoją prywatność. Aplikacja działa lokalnie i nie zbiera ani nie przesyła Twoich danych osobowych na zewnętrzne serwery.",
+
+        list1:[
+            "Treść Twoich zadań i notatek (zapisywane wyłącznie lokalnie)",
+            "Ustawienia aplikacji oraz konfiguracje planera",
+            "Brak zewnętrznych systemów śledzenia aktywności"
+        ],
+
+        s2:"2. Wykorzystanie danych",
+        text2:"Wszystkie dane generowane przez użytkownika wewnątrz planera służą wyłącznie do poprawnego realizowania funkcji przypomnień i zarządzania listami zadań bezpośrednio na urządzeniu docelowym.",
+
+        s3:"3. Udostępnianie danych",
+        text3:"VoidTask nie gromadzi danych w chmurze, w związku z czym nie sprzedaje ani nie udostępnia żadnych informacji osobom trzecim.",
+
+        s4:"4. Zmiany polityki prywatności",
+        text6:"Polityka prywatności może ulec zmianie, jednak nadrzędna zasada całkowitej lokalności i prywatności Twoich danych pozostaje niezmienna."
+    },
+
+    en:{
+        title:"Privacy Policy",
+
+        s1:"1. Data Collection",
+        text1:"VoidTask respects your privacy. The application operates strictly locally and does not collect or transmit your personal data to external servers.",
+
+        list1:[
+            "Content of your tasks and notes (saved locally only)",
+            "Application settings and planner configurations",
+            "No external activity tracking systems"
+        ],
+
+        s2:"2. Data Usage",
+        text2:"All user-generated data within the planner is used solely to properly execute reminder functions and manage task lists directly on your device.",
+
+        s3:"3. Data Sharing",
+        text3:"VoidTask does not store data in the cloud, and therefore does not sell or share any information with third parties.",
+
+        s4:"4. Changes to Privacy Policy",
+        text6:"This Privacy Policy may be updated, but the core principle of complete local data management and data privacy remains unchanged."
+    }
+};
+
+function updateList(id, items){
+    const list = document.getElementById(id);
+    list.innerHTML = "";
+
+    items.forEach(item => {
+        const li = document.createElement("li");
+        li.innerText = item;
+        list.appendChild(li);
+    });
+}
+
+function setLanguage(lang){
+    localStorage.setItem('selectedLang', lang);
+
+    document.getElementById('btn-pl').classList.toggle('active', lang === 'pl');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+    document.getElementById('title').innerText = translations[lang].title;
+
+    document.getElementById('s1').innerText = translations[lang].s1;
+    document.getElementById('text1').innerText = translations[lang].text1;
+    updateList('list1', translations[lang].list1);
+
+    document.getElementById('s2').innerText = translations[lang].s2;
+    document.getElementById('text2').innerText = translations[lang].text2;
+
+    document.getElementById('s3').innerText = translations[lang].s3;
+    document.getElementById('text3').innerText = translations[lang].text3;
+
+    document.getElementById('s4').innerText = translations[lang].s4;
+    document.getElementById('text6').innerText = translations[lang].text6;
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('selectedLang') || 'pl';
+    setLanguage(savedLang);
+});
+</script>
+
+</body>
+</html>

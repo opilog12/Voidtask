@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="ico.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service - VoidTask</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#050505;
+    color:#d9f2ff;
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at top left, rgba(0,153,255,0.08), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(0,153,255,0.05), transparent 30%);
+    z-index:-3;
+}
+
+.grid{
+    position:fixed;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(0,153,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,153,255,0.04) 1px, transparent 1px);
+    background-size:35px 35px;
+    z-index:-2;
+}
+
+.lang-switcher{
+    position:absolute;
+    top:20px;
+    right:20px;
+    display:flex;
+    gap:10px;
+}
+
+.lang-btn{
+    background:#111;
+    border:1px solid rgba(0,153,255,0.2);
+    color:#b3e6ff;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.2s;
+}
+
+.lang-btn:hover{
+    transform:translateY(-2px);
+}
+
+.lang-btn.active{
+    background:#0099ff;
+    color:#000;
+}
+
+.container{
+    width:90%;
+    max-width:1000px;
+    margin:auto;
+    padding:120px 20px;
+}
+
+.card{
+    background:rgba(10,10,10,0.75);
+    border:1px solid rgba(0,153,255,0.15);
+    border-radius:18px;
+    padding:35px;
+    backdrop-filter:blur(8px);
+}
+
+h1{
+    color:#66d9ff;
+    margin-bottom:25px;
+    font-size:3rem;
+    text-shadow:0 0 15px #0099ff;
+}
+
+h2{
+    margin-top:30px;
+    margin-bottom:15px;
+    color:#73d6ff;
+    font-size:1.4rem;
+}
+
+p, li{
+    line-height:1.9;
+    color:#d9f2ff;
+}
+
+ul{
+    padding-left:25px;
+    margin-bottom:20px;
+}
+
+.section{
+    margin-bottom:25px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="grid"></div>
+
+<div class="lang-switcher">
+    <button class="lang-btn active" id="btn-pl" onclick="setLanguage('pl')">PL</button>
+    <button class="lang-btn" id="btn-en" onclick="setLanguage('en')">EN</button>
+</div>
+
+<div class="container">
+<div class="card">
+
+<h1 id="title">Regulamin</h1>
+
+<div class="section">
+<h2 id="s1">1. Postanowienia ogólne</h2>
+<p id="text1">
+Korzystając z aplikacji VoidTask, użytkownik akceptuje niniejszy regulamin oraz zobowiązuje się do przestrzegania obowiązującego prawa.
+</p>
+</div>
+
+<div class="section">
+<h2 id="s2">2. Zasady korzystania</h2>
+
+<p id="text2">
+Użytkownik zobowiązuje się do korzystania z planera w sposób zgodny z jego przeznaczeniem.
+</p>
+
+<ul id="list1">
+<li>Zakazane jest modyfikowanie lub inżynieria wsteczna kodu aplikacji bez zgody autora.</li>
+<li>Zakazane jest wykorzystywanie aplikacji do celów komercyjnych bez odpowiedniej licencji.</li>
+<li>Aplikacja służy do organizacji zadań i zarządzania czasem osobistym.</li>
+</ul>
+</div>
+
+<div class="section">
+<h2 id="s3">3. Odpowiedzialność</h2>
+
+<p id="text3">
+Aplikacja VoidTask jest dostarczana „as is” („tak jak jest”) bez jakichkolwiek gwarancji działania, stałej dostępności czy bezbłędności.
+</p>
+
+<ul id="list2">
+<li>Właściciel aplikacji nie odpowiada za utratę danych ani zaplanowanych zadań.</li>
+<li>Właściciel nie odpowiada za szkody wynikające z błędnego działania programu na urządzeniach użytkownika.</li>
+</ul>
+</div>
+
+<div class="section">
+<h2 id="s4">4. Zmiany regulaminu</h2>
+
+<p id="text5">
+Regulamin może zostać zmieniony w dowolnym momencie. Dalsze korzystanie z aplikacji oznacza akceptację zmian.
+</p>
+</div>
+
+</div>
+</div>
+
+<script>
+const translations = {
+    pl:{
+        title:"Regulamin",
+
+        s1:"1. Postanowienia ogólne",
+        text1:"Korzystając z aplikacji VoidTask, użytkownik akceptuje niniejszy regulamin oraz zobowiązuje się do przestrzegania obowiązującego prawa.",
+
+        s2:"2. Zasady korzystania",
+        text2:"Użytkownik zobowiązuje się do korzystania z planera w sposób zgodny z jego przeznaczeniem.",
+
+        list1:[
+            "Zakazane jest modyfikowanie lub inżynieria wsteczna kodu aplikacji bez zgody autora.",
+            "Zakazane jest wykorzystywanie aplikacji do celów komercyjnych bez odpowiedniej licencji.",
+            "Aplikacja służy do organizacji zadań i zarządzania czasem osobistym."
+        ],
+
+        s3:"3. Odpowiedzialność",
+        text3:"Aplikacja VoidTask jest dostarczana „as is” („tak jak jest”) bez jakichkolwiek gwarancji działania, stałej dostępności czy bezbłędności.",
+
+        list2:[
+            "Właściciel aplikacji nie odpowiada za utratę danych ani zaplanowanych zadań.",
+            "Właściciel nie odpowiada za szkody wynikające z błędnego działania programu na urządzeniach użytkownika."
+        ],
+
+        s4:"4. Zmiany regulaminu",
+        text5:"Regulamin może zostać zmieniony w dowolnym momencie. Dalsze korzystanie z aplikacji oznacza akceptację zmian."
+    },
+
+    en:{
+        title:"Terms of Service",
+
+        s1:"1. General Provisions",
+        text1:"By using the VoidTask application, the user agrees to these Terms of Service and to comply with applicable laws.",
+
+        s2:"2. Usage Rules",
+        text2:"The user agrees to use the planner only for its intended purposes.",
+
+        list1:[
+            "Modifying or reverse-engineering the application code without permission is prohibited.",
+            "Using the application for commercial purposes without a proper license is prohibited.",
+            "The application is intended for task organization and personal time management."
+        ],
+
+        s3:"3. Liability",
+        text3:"VoidTask is provided “as is” without any warranty of reliability, availability, or error-free operation.",
+
+        list2:[
+            "The application owner is not responsible for any data loss or missing tasks.",
+            "The owner is not responsible for damages caused by application errors on user devices."
+        ],
+
+        s4:"4. Changes to Terms",
+        text5:"These Terms may be changed at any time. Continued use of the application means acceptance of the updated Terms."
+    }
+};
+
+function updateList(id, items){
+    const list = document.getElementById(id);
+    list.innerHTML = "";
+
+    items.forEach(item => {
+        const li = document.createElement("li");
+        li.innerText = item;
+        list.appendChild(li);
+    });
+}
+
+function setLanguage(lang){
+    localStorage.setItem('selectedLang', lang);
+
+    document.getElementById('btn-pl').classList.toggle('active', lang === 'pl');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+    document.getElementById('title').innerText = translations[lang].title;
+
+    document.getElementById('s1').innerText = translations[lang].s1;
+    document.getElementById('text1').innerText = translations[lang].text1;
+
+    document.getElementById('s2').innerText = translations[lang].s2;
+    document.getElementById('text2').innerText = translations[lang].text2;
+
+    updateList('list1', translations[lang].list1);
+
+    document.getElementById('s3').innerText = translations[lang].s3;
+    document.getElementById('text3').innerText = translations[lang].text3;
+
+    updateList('list2', translations[lang].list2);
+
+    document.getElementById('s4').innerText = translations[lang].s4;
+    document.getElementById('text5').innerText = translations[lang].text5;
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('selectedLang') || 'pl';
+    setLanguage(savedLang);
+});
+</script>
+
+</body>
+</html>
